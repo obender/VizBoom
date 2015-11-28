@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Foundation 4</title>
+
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="app.css"/>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+</head>
+<body>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h2>Welcome to VizBoom for Koomona</h2>
+        <hr/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h3>Top 10 Placements</h3>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Start date&nbsp;
+                    <a href="#" class="button tiny" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
+                </th>
+                <th>End date&nbsp;
+                    <a href="#" class="button tiny" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="startDate">2012-02-20</td>
+                <td id="endDate">2012-02-25</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <div id="table_div" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <hr/>
+    </div>
+</div>
+<div class="row">
+    <div class="large-8 columns">
+        <h3>Daily Volume</h3>
+        <div class="row">
+            <div class="large-12 columns">
+                <div id="curve_chart">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        document.write('<script src=' +
+        ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+        '.js><\/script>')
+    </script>
+
+    <script src="javascripts/foundation/foundation.js"></script>
+
+    <script src="javascripts/foundation/foundation.alerts.js"></script>
+
+    <script src="javascripts/foundation/foundation.clearing.js"></script>
+
+    <script src="javascripts/foundation/foundation.cookie.js"></script>
+
+    <script src="javascripts/foundation/foundation.dropdown.js"></script>
+
+    <script src="javascripts/foundation/foundation.forms.js"></script>
+
+    <script src="javascripts/foundation/foundation.joyride.js"></script>
+
+    <script src="javascripts/foundation/foundation.magellan.js"></script>
+
+    <script src="javascripts/foundation/foundation.orbit.js"></script>
+
+    <script src="javascripts/foundation/foundation.placeholder.js"></script>
+
+    <script src="javascripts/foundation/foundation.reveal.js"></script>
+
+    <script src="javascripts/foundation/foundation.section.js"></script>
+
+    <script src="javascripts/foundation/foundation.tooltips.js"></script>
+
+    <script src="javascripts/foundation/foundation.topbar.js"></script>
+    <script type="text/javascript"
+            src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['table','corechart']}]}"></script>
+    <script>
+        $(document).foundation();
+    </script>
+    <script src="javascripts/app.js"></script>
+
+</body>
+</html>
