@@ -1,21 +1,31 @@
 google.setOnLoadCallback(drawTable);
-google.setOnLoadCallback(drawChart);
+function drawTable(displayData) {
+    if (!displayData.length)
+        return;
 
-function drawTable() {
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Name');
-    data.addColumn('number', 'Salary');
-    data.addColumn('boolean', 'Full Time Employee');
-    data.addRows([
-        ['Mike', {v: 10000, f: '$10,000'}, true],
-        ['Jim', {v: 8000, f: '$8,000'}, false],
-        ['Alice', {v: 12500, f: '$12,500'}, true],
-        ['Bob', {v: 7000, f: '$7,000'}, true]
-    ]);
+    data.addColumn('string', 'Chain');
+    data.addColumn('number', 'Served');
+    data.addColumn('number', 'Inited');
+    data.addColumn('date', 'Time');
+
+    var dataArray = [];
+
+    for (var item in displayData) {
+        var obj = displayData[item];
+        var row = [];
+        row.push(obj.chain);
+        row.push(obj.served);
+        row.push(obj.inited);
+        row.push(new Date(obj.time));
+        dataArray.push(row);
+    }
+
+    data.addRows(dataArray);
 
     var table = new google.visualization.Table(document.getElementById('table_div'));
 
-    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    table.draw(data, {showRowNumber: true, width: '100%', height: '100%', alternatingRowStyle: true, sortColumn: 1,sortAscending:false});
 }
 
 
@@ -39,18 +49,17 @@ function drawChart() {
     chart.draw(data, options);
 }
 
+var top10Placments = [];
 $.ajax({
     url: "/data/sample_data.json"
 }).done(function (data) {
-    var resultsSet = Promise.filter(
-        data,
-        function (item, index, length) {
-            console.log(item);
-        }
-    ).done(function (data) {
-            alert("second success");
-        });
-    resultsSet.resolve();
+    console.log('Loaded ' + data.length + ' items')
+    var sorted = data.sort(function (a, b) {
+        return b.served - a.served;
+    });
+    top10Placments = sorted.slice(0, 10);
+    console.log('Sorted top 10');
+    drawTable(top10Placments);
 });
 
 
